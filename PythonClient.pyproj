@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ee0bfa6d-11c8-4c9f-a2f3-34bf26b6cca5}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>setup.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="examples\requirements.txt" />
+    <Content Include="example_api.bat" />
+    <Content Include="example_stream.bat" />
+    <Content Include="install_examples.bat" />
+    <Content Include="package_build.txt" />
+    <Content Include="README.md" />
+    <Content Include="requirements.txt" />
+    <Content Include="setup.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="examples\fc_client_ex.py" />
+    <Compile Include="examples\fc_config.py" />
+    <Compile Include="examples\fc_stream_ex.py" />
+    <Compile Include="examples\__init__.py" />
+    <Compile Include="setup.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ssi_fctrading\constant\api.py" />
+    <Compile Include="ssi_fctrading\constant\__init__.py" />
+    <Compile Include="ssi_fctrading\core\core_crypto.py" />
+    <Compile Include="ssi_fctrading\core\core_helper.py" />
+    <Compile Include="ssi_fctrading\core\__init__.py" />
+    <Compile Include="ssi_fctrading\fc_client.py" />
+    <Compile Include="ssi_fctrading\fc_config.py" />
+    <Compile Include="ssi_fctrading\fc_stream.py" />
+    <Compile Include="ssi_fctrading\models\Requests.py" />
+    <Compile Include="ssi_fctrading\models\Responses.py" />
+    <Compile Include="ssi_fctrading\models\__init__.py" />
+    <Compile Include="ssi_fctrading\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="examples\" />
+    <Folder Include="ssi_fctrading\" />
+    <Folder Include="ssi_fctrading\constant\" />
+    <Folder Include="ssi_fctrading\core\" />
+    <Folder Include="ssi_fctrading\models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

@@ -31,7 +31,7 @@ def fc_get_otp(code: str):
 	"""
 	return client.verifyCode(code)
 
-@app.get("/newOder")
+@app.get("/newOrder")
 def fc_new_order(instrument_id: str, market_id: str, side: str, order_type: str
     , price: float, quantity: int, account: str, stop_order: bool = False, stop_price: float = 0, 
       stop_type: str = '', stop_step: float = 0, loss_step: float = 0, profit_step: float = 0):
@@ -96,6 +96,73 @@ def fc_cancel_order(order_id: str, instrument_id: str, market_id: str, side: str
 	, str(order_id), str(market_id), str(instrument_id), str(side))
 
 	res = client.cancle_order(fc_rq)
+	return res
+
+@app.get("/derNewOrder")
+def fc_new_order(instrument_id: str, market_id: str, side: str, order_type: str
+    , price: float, quantity: int, account: str, stop_order: bool = False, stop_price: float = 0, 
+      stop_type: str = '', stop_step: float = 0, loss_step: float = 0, profit_step: float = 0):
+	
+	"""Place new order
+
+	Args:
+	```	
+	instrument_id (str): Mã chứng khoán
+	market_id (str): Thị trường ('VNFE')
+	side (str): 'B' or 'S'
+	order_type (str): Loại lệnh
+	price (float): Giá. Với các lệnh điều kiện price=0
+	quantity (int): Khối lượng
+	account (str): Tài khoản
+	stop_order (bool, optional): Lệnh điều kiện (chỉ áp dụng với phái sinh). Defaults to False.
+	stop_price (float, optional): Giá trigger của lệnh điều kiện. Defaults to 0.
+	stop_type (str, optional): Loại lệnh điều kiện. Defaults to ''.
+	stop_step (float, optional): . Defaults to 0.
+	loss_step (float, optional): . Defaults to 0.
+	profit_step (float, optional): . Defaults to 0.
+	```
+	"""
+	fc_req = fcmodel_requests.NewOrder(str(account).upper()
+	, str(random.randint(0, 99999999))
+	, str(instrument_id).upper(), str(market_id).upper(), str(side).upper(), str(order_type).upper()
+	, float(price), int(quantity), bool(stop_order), float(stop_price), str(stop_type), float(stop_step), float(loss_step), float(profit_step))
+	
+
+	res = client.der_new_order(fc_req)
+	return res
+
+@app.get("/derModifyOrder")
+def fc_modify_order(order_id: str, instrument_id: str, market_id: str, side: str, order_type: str
+    , price: float, quantity: int, account: str):
+	"""Modify order
+
+	Args:
+		order_id (str): OrderID to modify
+		instrument_id (str): Mã chứng khoán
+		market_id (str): Thị trường ( 'VNFE' for derviratives)
+		side (str): 'B' or 'S'
+		order_type (str): Loại lệnh
+		price (float): Giá
+		quantity (int): Khối lượng
+		account (str): Tài khoản
+
+	Returns:
+		Str: json string response
+	"""
+	fc_rq = fcmodel_requests.ModifyOrder(str(account)
+	, str(random.randint(0, 99999999)), str(order_id)
+	, str(market_id), str(instrument_id), float(price), int(quantity), str(side), str(order_type))
+
+	res = client.der_modify_order(fc_rq)
+	return res
+
+@app.get("/derCancelOrder")
+def fc_cancel_order(order_id: str, instrument_id: str, market_id: str, side: str, account: str):
+	
+	fc_rq = fcmodel_requests.CancelOrder(str(account), str(random.randint(0, 99999999))
+	, str(order_id), str(market_id), str(instrument_id), str(side))
+
+	res = client.der_cancle_order(fc_rq)
 	return res
 
 @app.get("/stockAccountBalance")
@@ -230,4 +297,20 @@ def fc_order_history(account: str, start_date: str, end_date: str):
 	fc_rq = fcmodel_requests.OrderHistory(str(account), str(start_date), str(end_date))
 
 	res = client.get_order_history(fc_rq)
+	return res
+
+@app.get("/orderBook")
+def fc_order_history(account: str):
+	"""Get order history
+
+	Args:
+		account (str): account id
+
+	Returns:
+		[str]: json string
+	"""
+	
+	fc_rq = fcmodel_requests.OrderBook(str(account))
+
+	res = client.get_order_book(fc_rq)
 	return res

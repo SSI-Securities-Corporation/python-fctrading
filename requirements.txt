@@ -1,0 +1,4 @@
+pycryptodome==3.8.1
+xmljson==0.2.0
+requests==2.22.0
+signalr-client==0.0.7
