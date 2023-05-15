@@ -18,7 +18,7 @@ def tapi_data_streaming(on_message, on_error):
 	client = FCTradingClient(fc_config.Url, fc_config.ConsumerID,
 	fc_config.ConsumerSecret, fc_config.PrivateKey, fc_config.TwoFAType)
 	print("access_token: "+ client.get_access_token())
-	stream_client = FCTradingStream(client, fc_config.StreamURL, on_message, on_error, "0")
+	stream_client = FCTradingStream(client, fc_config.StreamURL, on_message, on_error, fc_config.NotifyId)
 	stream_client.start()
 
 

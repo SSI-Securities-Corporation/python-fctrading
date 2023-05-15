@@ -4,3 +4,4 @@ PrivateKey = "PFJTQUtleVZhbHVlPjxNb2R1bHVzPnVxQ2tZcE9FM1FSUE5BdkIweEdJL3FqQ1RZak
 Url = "http://192.168.213.98:1150/"
 StreamURL = "http://192.168.213.98:1151/"
 TwoFAType = 1
+NotifyId = '-1'
