@@ -28,6 +28,7 @@ class NewOrder:
     profitStep: float = 0.0
     channelID: str = 'TA'
     code: str = ''
+    device_id: str = ''
 
 @dataclass
 class CancelOrder:
