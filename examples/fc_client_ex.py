@@ -58,7 +58,7 @@ async def fc_new_order(instrument_id: str, market_id: str, side: str, order_type
 	fc_req = fcmodel_requests.NewOrder(str(account).upper()
 	, str(random.randint(0, 99999999))
 	, str(instrument_id).upper(), str(market_id).upper(), str(side).upper(), str(order_type).upper()
-	, float(price), int(quantity), bool(stop_order), float(stop_price), str(stop_type), float(stop_step), float(loss_step), float(profit_step),str(device_id))
+	, float(price), int(quantity), bool(stop_order), float(stop_price), str(stop_type), float(stop_step), float(loss_step), float(profit_step),device_id= str(device_id))
 	
 
 	res = client.new_order(fc_req)
