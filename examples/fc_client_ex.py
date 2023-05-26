@@ -31,69 +31,88 @@ async def fc_get_otp(code: str):
 	return client.verifyCode(code)
 
 @app.get("/newOrder")
-async def fc_new_order(instrument_id: str, market_id: str, side: str, order_type: str
-    , price: float, quantity: int, account: str, stop_order: bool = False, stop_price: float = 0, 
-      stop_type: str = '', stop_step: float = 0, loss_step: float = 0, profit_step: float = 0, device_id: str = ''):
+async def fc_new_order(instrumentID: str, market: str, buySell: str, orderType: str
+    , price: float, quantity: int, account: str, stopOrder: bool = False, stopPrice: float = 0, 
+      stopType: str = '', stopStep: float = 0, lossStep: float = 0, profitStep: float = 0, deviceId: str = '', userAgent: str = ''):
 	
 	"""Place new order
 
 	Args:
 	```	
-	instrument_id (str): Mã chứng khoán
-	market_id (str): Thị trường ('VN' hoặc 'VNFE')
-	side (str): 'B' or 'S'
-	order_type (str): Loại lệnh
+	instrumentID (str): Mã chứng khoán
+	market (str): Thị trường ('VN' hoặc 'VNFE')
+	buySell (str): 'B' or 'S'
+	orderType (str): Loại lệnh
 	price (float): Giá. Với các lệnh điều kiện price=0
 	quantity (int): Khối lượng
 	account (str): Tài khoản
-	stop_order (bool, optional): Lệnh điều kiện (chỉ áp dụng với phái sinh). Defaults to False.
-	stop_price (float, optional): Giá trigger của lệnh điều kiện. Defaults to 0.
-	stop_type (str, optional): Loại lệnh điều kiện. Defaults to ''.
-	stop_step (float, optional): . Defaults to 0.
-	loss_step (float, optional): . Defaults to 0.
-	profit_step (float, optional): . Defaults to 0.
-	device_id (str, optional): Định danh của thiết bị đặt lệnh
+	stopOrder (bool, optional): Lệnh điều kiện (chỉ áp dụng với phái sinh). Defaults to False.
+	stopPrice (float, optional): Giá trigger của lệnh điều kiện. Defaults to 0.
+	stopType (str, optional): Loại lệnh điều kiện. Defaults to ''.
+	stopStep (float, optional): . Defaults to 0.
+	lossStep (float, optional): . Defaults to 0.
+	profitStep (float, optional): . Defaults to 0.
+	deviceId (str, optional): Định danh của thiết bị đặt lệnh
+	userAgent (str, optional): Người dùng
 	```
 	"""
 	fc_req = fcmodel_requests.NewOrder(str(account).upper()
 	, str(random.randint(0, 99999999))
-	, str(instrument_id).upper(), str(market_id).upper(), str(side).upper(), str(order_type).upper()
-	, float(price), int(quantity), bool(stop_order), float(stop_price), str(stop_type), float(stop_step), float(loss_step), float(profit_step),device_id= str(device_id))
+	, str(instrumentID).upper(), str(market).upper(), str(buySell).upper(), str(orderType).upper()
+	, float(price), int(quantity), bool(stopOrder), float(stopPrice), str(stopType), float(stopStep)
+ 	, float(lossStep), float(profitStep),deviceId= str(deviceId), userAgent = str(userAgent))
 	
 
 	res = client.new_order(fc_req)
 	return res
 
 @app.get("/modifyOrder")
-async def fc_modify_order(order_id: str, instrument_id: str, market_id: str, side: str, order_type: str
-    , price: float, quantity: int, account: str):
+async def fc_modify_order(orderID: str, instrumentID: str, marketID: str, buySell: str, orderType: str
+    , price: float, quantity: int, account: str, deviceId: str = '', userAgent: str = ''):
 	"""Modify order
 
 	Args:
-		order_id (str): OrderID to modify
-		instrument_id (str): Mã chứng khoán
-		market_id (str): Thị trường ('VN' for stock 'VNFE' for derviratives)
-		side (str): 'B' or 'S'
-		order_type (str): Loại lệnh
-		price (float): Giá
-		quantity (int): Khối lượng
-		account (str): Tài khoản
-
+	```
+	orderID (str): OrderID to modify
+	instrumentID (str): Mã chứng khoán
+	marketID (str): Thị trường ('VN' for stock 'VNFE' for derviratives)
+	buySell (str): 'B' or 'S'
+	orderType (str): Loại lệnh
+	price (float): Giá
+	quantity (int): Khối lượng
+	account (str): Tài khoản
+	deviceId (str, optional): Định danh thiết bị
+	userAgent (str, optional): Định danh người dùng
+	```
 	Returns:
 		Str: json string response
 	"""
 	fc_rq = fcmodel_requests.ModifyOrder(str(account)
-	, str(random.randint(0, 99999999)), str(order_id)
-	, str(market_id), str(instrument_id), float(price), int(quantity), str(side), str(order_type))
+	, str(random.randint(0, 99999999)), str(orderID)
+	, str(marketID), str(instrumentID), float(price), int(quantity), str(buySell), str(orderType), deviceId= str(deviceId), userAgent= str(userAgent))
 
 	res = client.modify_order(fc_rq)
 	return res
 
 @app.get("/cancelOrder")
-async def fc_cancel_order(order_id: str, instrument_id: str, market_id: str, side: str, account: str):
-	
+async def fc_cancel_order(orderID: str, instrumentID: str, marketID: str, buySell: str, account: str, deviceId: str = '', userAgent: str = ''):
+	"""Cancel order
+
+	Args:
+	```
+	orderID (str): Số hiệu lệnh cần hủy
+	instrumentID (str): Mã chứng khoán
+	marketID (str): Thị trường 'VN' (cơ sở) hay 'VNFE' (phái sinh)
+	buySell (str): 'B' or 'S'
+	account (str): Tài khoản
+	deviceId (str, optional): Định danh thiết bị đặt lệnh. Defaults to ''.
+	userAgent (str, optional): Định danh người dùng. Defaults to ''.
+	```
+	Returns:
+		str: JSON string
+	"""
 	fc_rq = fcmodel_requests.CancelOrder(str(account), str(random.randint(0, 99999999))
-	, str(order_id), str(market_id), str(instrument_id), str(side))
+	, str(orderID), str(marketID), str(instrumentID), str(buySell), deviceId=str(deviceId), userAgent=str(userAgent))
 
 	res = client.cancle_order(fc_rq)
 	return res
@@ -104,10 +123,13 @@ async def fc_stock_account_balance(account: str):
 	"""Get stock account balance
 
 	Args:
-		account (str): stock account id
-
+	```
+ 	account (str): stock account id
+  	```
 	Returns:
-		str: Json str
+	```
+ 	str: Json str
+  	```
 	"""	
 	
 	fc_rq = fcmodel_requests.StockAccountBalance(str(account))
@@ -180,55 +202,55 @@ async def fc_derivative_position(account: str):
 	return res
 
 @app.get("/maxBuyQty")
-async def fc_max_buy_qty(account: str, instrument_id: str, price: float):
+async def fc_max_buy_qty(account: str, instrumentID: str, price: float):
 	"""Get max buy qty
 
 	Args:
 		account (str): account id
-		instrument_id (str): buy instrument
+		instrumentID (str): buy instrument
 		price (float): buy price
 
 	Returns:
 		str: json string
 	"""
 	
-	fc_rq = fcmodel_requests.MaxBuyQty(str(account), str(instrument_id), float(price))
+	fc_rq = fcmodel_requests.MaxBuyQty(str(account), str(instrumentID), float(price))
 
 	res = client.get_max_buy_qty(fc_rq)
 	return res
 
 @app.get("/maxSellQty")
-async def fc_max_sell_qty(account: str, instrument_id: str, price: float =0):
+async def fc_max_sell_qty(account: str, instrumentID: str, price: float =0):
 	"""Get max sell qty
 
 	Args:
 		account (str): account id
-		instrument_id (str): sell instrument
+		instrumentID (str): sell instrument
 		price (float): sell price ( for dervatives exchange )
 
 	Returns:
 		str: json string
 	"""
 	
-	fc_rq = fcmodel_requests.MaxSellQty(str(account), str(instrument_id), float(price))
+	fc_rq = fcmodel_requests.MaxSellQty(str(account), str(instrumentID), float(price))
 
 	res = client.get_max_sell_qty(fc_rq)
 	return res
 
 @app.get("/orderHistory")
-async def fc_order_history(account: str, start_date: str, end_date: str):
+async def fc_order_history(account: str, startDate: str, endDate: str):
 	"""Get order history
 
 	Args:
 		account (str): account id
-		start_date (str): from date (format 'DD/MM/YYYY' ex: 21/05/2021)
-		end_date (str): end date (format 'DD/MM/YYYY' ex: 21/05/2021)
+		startDate (str): from date (format 'DD/MM/YYYY' ex: 21/05/2021)
+		endDate (str): end date (format 'DD/MM/YYYY' ex: 21/05/2021)
 
 	Returns:
 		[str]: json string
 	"""
 	
-	fc_rq = fcmodel_requests.OrderHistory(str(account), str(start_date), str(end_date))
+	fc_rq = fcmodel_requests.OrderHistory(str(account), str(startDate), str(endDate))
 
 	res = client.get_order_history(fc_rq)
 	return res
