@@ -13,7 +13,7 @@ readme='TBD'
 
 setup(
     name='ssi_fctrading',
-    version='2.1.1',
+    version='2.2.0',
     description='FastConnect TradingAPI client by Python',
     long_description=readme,
     author='ducdv',
