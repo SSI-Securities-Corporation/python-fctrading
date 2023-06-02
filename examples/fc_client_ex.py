@@ -117,6 +117,92 @@ async def fc_cancel_order(orderID: str, instrumentID: str, marketID: str, buySel
 	res = client.cancle_order(fc_rq)
 	return res
 
+@app.get("/derNewOrder")
+async def fc_der_new_order(instrumentID: str, market: str, buySell: str, orderType: str
+    , price: float, quantity: int, account: str, stopOrder: bool = False, stopPrice: float = 0, 
+      stopType: str = '', stopStep: float = 0, lossStep: float = 0, profitStep: float = 0, deviceId: str = '', userAgent: str = ''):
+	
+	"""Place new derivatives order
+
+	Args:
+	```	
+	instrumentID (str): Mã chứng khoán
+	market (str): Thị trường ('VN' hoặc 'VNFE')
+	buySell (str): 'B' or 'S'
+	orderType (str): Loại lệnh
+	price (float): Giá. Với các lệnh điều kiện price=0
+	quantity (int): Khối lượng
+	account (str): Tài khoản
+	stopOrder (bool, optional): Lệnh điều kiện (chỉ áp dụng với phái sinh). Defaults to False.
+	stopPrice (float, optional): Giá trigger của lệnh điều kiện. Defaults to 0.
+	stopType (str, optional): Loại lệnh điều kiện. Defaults to ''.
+	stopStep (float, optional): . Defaults to 0.
+	lossStep (float, optional): . Defaults to 0.
+	profitStep (float, optional): . Defaults to 0.
+	deviceId (str, optional): Định danh của thiết bị đặt lệnh
+	userAgent (str, optional): Người dùng
+	```
+	"""
+	fc_req = fcmodel_requests.NewOrder(str(account).upper()
+	, str(random.randint(0, 99999999))
+	, str(instrumentID).upper(), str(market).upper(), str(buySell).upper(), str(orderType).upper()
+	, float(price), int(quantity), bool(stopOrder), float(stopPrice), str(stopType), float(stopStep)
+ 	, float(lossStep), float(profitStep),deviceId= str(deviceId), userAgent = str(userAgent))
+	
+
+	res = client.der_new_order(fc_req)
+	return res
+
+@app.get("/derModifyOrder")
+async def fc_der_modify_order(orderID: str, instrumentID: str, marketID: str, buySell: str, orderType: str
+    , price: float, quantity: int, account: str, deviceId: str = '', userAgent: str = ''):
+	"""Derivative Modify order
+
+	Args:
+	```
+	orderID (str): OrderID to modify
+	instrumentID (str): Mã chứng khoán
+	marketID (str): Thị trường ('VN' for stock 'VNFE' for derviratives)
+	buySell (str): 'B' or 'S'
+	orderType (str): Loại lệnh
+	price (float): Giá
+	quantity (int): Khối lượng
+	account (str): Tài khoản
+	deviceId (str, optional): Định danh thiết bị
+	userAgent (str, optional): Định danh người dùng
+	```
+	Returns:
+		Str: json string response
+	"""
+	fc_rq = fcmodel_requests.ModifyOrder(str(account)
+	, str(random.randint(0, 99999999)), str(orderID)
+	, str(marketID), str(instrumentID), float(price), int(quantity), str(buySell), str(orderType), deviceId= str(deviceId), userAgent= str(userAgent))
+
+	res = client.der_modify_order(fc_rq)
+	return res
+
+@app.get("/derCancelOrder")
+async def fc_der_cancel_order(orderID: str, instrumentID: str, marketID: str, buySell: str, account: str, deviceId: str = '', userAgent: str = ''):
+	"""Derivative cancel order
+
+	Args:
+	```
+	orderID (str): Số hiệu lệnh cần hủy
+	instrumentID (str): Mã chứng khoán
+	marketID (str): Thị trường 'VN' (cơ sở) hay 'VNFE' (phái sinh)
+	buySell (str): 'B' or 'S'
+	account (str): Tài khoản
+	deviceId (str, optional): Định danh thiết bị đặt lệnh. Defaults to ''.
+	userAgent (str, optional): Định danh người dùng. Defaults to ''.
+	```
+	Returns:
+		str: JSON string
+	"""
+	fc_rq = fcmodel_requests.CancelOrder(str(account), str(random.randint(0, 99999999))
+	, str(orderID), str(marketID), str(instrumentID), str(buySell), deviceId=str(deviceId), userAgent=str(userAgent))
+
+	res = client.der_cancle_order(fc_rq)
+	return res
 
 @app.get("/stockAccountBalance")
 async def fc_stock_account_balance(account: str):
