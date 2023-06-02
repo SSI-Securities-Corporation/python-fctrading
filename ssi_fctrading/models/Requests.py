@@ -28,6 +28,8 @@ class NewOrder:
     profitStep: float = 0.0
     channelID: str = 'TA'
     code: str = ''
+    deviceId: str = ''
+    userAgent: str = ''
 
 @dataclass
 class CancelOrder:
@@ -38,6 +40,8 @@ class CancelOrder:
     instrumentID: str
     buySell: str
     code: str = ''
+    deviceId: str = ''
+    userAgent: str = ''
 
 @dataclass
 class ModifyOrder:
@@ -51,6 +55,8 @@ class ModifyOrder:
     buySell: str
     orderType: str
     code: str = ''
+    deviceId: str = ''
+    userAgent: str = ''
 
 @dataclass
 class StockAccountBalance:
