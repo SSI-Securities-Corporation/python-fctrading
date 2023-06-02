@@ -1,2 +1,2 @@
-pip install ssi_fctrading --force-reinstall --find-links dist/ 
+pip install dist/ssi_fctrading-2.3.0.tar.gz
 pip install -r examples/requirements.txt
