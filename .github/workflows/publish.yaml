@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -26,3 +27,9 @@ jobs:
         dest: fc-trading.py.zip
     - name: Semantic Release
       uses: cycjimmy/semantic-release-action@v3
+    - name: Python Semantic Release
+      uses: relekang/python-semantic-release@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        repository_username: __token__
+        repository_password: ${{ secrets.PYPI_TOKEN }}
