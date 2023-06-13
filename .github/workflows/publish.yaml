@@ -1,4 +1,4 @@
-ame: Semantic Release
+name: Semantic Release
 
 on:
   push:
