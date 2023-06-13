@@ -1,0 +1,6 @@
+Hướng dẫn build package:
+E. Chạy build:
+ 1. Vào Start -> Run -> cmd.
+ 2. Gõ cd 'đường dẫn tới thư mục chứa file setup.py và root_package'
+ 3. Gõ 'python setup.py sdist'
+ F. Tiến hành cài đặt: (đã được hướng dẫn trong Install-how-to.txt)

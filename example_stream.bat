@@ -1,0 +1,1 @@
+python -m examples.fc_stream_ex
