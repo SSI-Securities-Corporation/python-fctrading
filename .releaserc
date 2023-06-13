@@ -1,5 +1,5 @@
 {
-  "branches": "master",
+  "branches": "main",
   "repositoryUrl": "https://github.com/SSI-Securities-Corporation/python-fctrading.git",
   "debug": "false",
   "plugins": [
