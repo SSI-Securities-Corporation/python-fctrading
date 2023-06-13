@@ -3,7 +3,7 @@ ame: Semantic Release
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release:
