@@ -24,6 +24,7 @@ jobs:
     - uses: vimtor/action-zip@v1
       with:
         files: dist/ examples/ example_api.bat example_stream.bat install_examples.bat README.md
+        recursive: true
         dest: fc-trading.py.zip
     - name: Semantic Release
       uses: cycjimmy/semantic-release-action@v3

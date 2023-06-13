@@ -1,2 +1,3 @@
 ssi_fctrading.egg-info
 **/__pycache__
+**/dist
