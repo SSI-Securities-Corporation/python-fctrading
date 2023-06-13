@@ -1,8 +1,21 @@
-#!/usr/bin/env python
-from setuptools import setup, find_packages
+import re
+from setuptools import setup
 
 # python setup.py sdist bdist_wheel
 # twine upload dist/*
+def _read_long_description():
+    try:
+        with open("README.md") as fd:
+            return fd.read()
+    except Exception:
+        return None
+    
+
+
+with open("ssi_fctrading/__init__.py", "r") as fd:
+    version = re.search(
+        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE
+    ).group(1)
 
 # I really prefer Markdown to reStructuredText.  PyPi does not.  This allows me
 # to have things how I'd like, but not throw complaints when people are trying
@@ -13,25 +26,23 @@ readme='TBD'
 
 setup(
     name='ssi_fctrading',
-    version='2.3.0',
+    version=version,
     description='FastConnect TradingAPI client by Python',
-    long_description=readme,
+    long_description=_read_long_description(),
     author='ducdv',
     author_email='ducdv@ssi.com.vn',
-    license='Property',
+    license='MIT',
     platforms=['POSIX', 'Windows'],
-    url='ssi.com.vn',
+    url='https://github.com/SSI-Securities-Corporation/python-fctrading',
     python_requires=">=3.7",
     classifiers=[
-        'Development Status :: 1 - Beta',
-        'License :: OSI Approved :: Property License',
-        'Environment :: Console',
-        'Operating System :: POSIX Windows',
-        'Programming Language :: Python :: 3.7'],
-    # entry_points={'console_scripts': [
-    #     'cython_npm = cython_npm:main',
-    # ]},
-    packages=find_packages(exclude=('test*','testpandoc*' )),
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+    ],
     include_package_data=False,
     install_requires=['pycryptodome',
                         'xmljson',
