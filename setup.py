@@ -25,10 +25,11 @@ readme='TBD'
 
 
 setup(
-    name='ssi_fctrading',
+    name='ssi-fctrading',
     version=version,
     description='FastConnect TradingAPI client by Python',
     long_description=_read_long_description(),
+    long_description_content_type='text/markdown',
     author='ducdv',
     author_email='ducdv@ssi.com.vn',
     license='MIT',

@@ -1,3 +1,4 @@
+__version__ = '0.0.0'
 
 # This is a property
 # of SSI company
@@ -11,4 +12,3 @@ warnings.filterwarnings("ignore")
 import sys
 from .fc_client import FCTradingClient
 from .fc_stream import FCTradingStream
-__version__ = '2.2.0'

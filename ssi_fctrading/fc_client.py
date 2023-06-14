@@ -8,7 +8,6 @@ from dataclasses import asdict
 import requests
 import json
 from datetime import date, datetime, timedelta
-import jwt
 
 
 class FCTradingClient(object):
