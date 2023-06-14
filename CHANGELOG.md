@@ -1,5 +1,12 @@
 # FCTrading Python Client Changelog
 
+## [1.0.2](https://github.com/SSI-Securities-Corporation/python-fctrading/compare/v1.0.1...v1.0.2) (2023-06-14)
+
+
+### Bug Fixes
+
+* version init change ([dba143a](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/dba143a9c21d648fa761da430a273d4c38777d01))
+
 # 1.0.0 (2023-06-13)
 
 
