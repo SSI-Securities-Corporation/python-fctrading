@@ -20,7 +20,7 @@ jobs:
           python-version: "3.11"
 
       - name: Python Semantic Release
-        uses: relekang/python-semantic-release@master
+        uses: thuongnn/python-semantic-release@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repository_username: __token__
