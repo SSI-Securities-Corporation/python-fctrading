@@ -1,7 +1,7 @@
 # Installation
 #### From tar ball (most stable)
 ``` python
-pip install dist/ssi_fctrading-2.2.0.tar.gz
+pip install ssi-fctrading
 ```
 #### Install behind proxy
 ```python
