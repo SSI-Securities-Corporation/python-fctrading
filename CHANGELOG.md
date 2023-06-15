@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.1 (2023-06-15)
+
+### Fix
+
+* Error build github action ([`9eaa4a0`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/9eaa4a079191f7abc296a2b6c01488b8c4772a00))
+* Add pip command ([`e294ecc`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/e294eccca5cf42d0b455263a54db1f64ef821910))
+
 ## v0.1.0 (2023-06-14)
 
 ### Feature
