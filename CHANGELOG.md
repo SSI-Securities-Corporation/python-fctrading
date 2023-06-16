@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.4.0 (2023-06-16)
+
+### Feature
+
+* Remove uat env ([`5f185ba`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/5f185badfff5eb74a2ae286a88b4e49399e80078))
+
 ## v2.3.1 (2023-06-16)
 
 ### Fix
