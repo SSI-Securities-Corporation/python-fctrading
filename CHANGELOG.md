@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.0 (2023-06-16)
+
+### Fix
+
+* Change zip file ([`77f1e22`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/77f1e22c7254ce4a4fedb7071143c7c4fccd7a1f))
+
+### Breaking
+
+* remove v1 protobuf version ([`77f1e22`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/77f1e22c7254ce4a4fedb7071143c7c4fccd7a1f))
+
 ## v0.1.1 (2023-06-15)
 
 ### Fix
