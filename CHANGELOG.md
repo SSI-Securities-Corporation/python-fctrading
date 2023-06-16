@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.3.0 (2023-06-16)
+
+### Feature
+
+* Add document and dist folder ([`2c26b51`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/2c26b516a0ab1c8babb86f2d276b6b89722e2fef))
+
 ## v2.2.0 (2023-06-16)
 
 ### Feature
