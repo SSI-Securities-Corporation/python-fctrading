@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.1 (2023-06-16)
+
+### Fix
+
+* Re-trigger build ([`457ee12`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/457ee1231530828a360a044391170a21e17ac396))
+* Custom zip file for python ([`b81c906`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/b81c906ce3ed84af5bc46a224ac0369bd37fc922))
+
 ## v1.0.0 (2023-06-16)
 
 ### Fix
