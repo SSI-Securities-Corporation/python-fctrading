@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.3.1 (2023-06-16)
+
+### Fix
+
+* Add function get deviceid ([`a149e57`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/a149e57adcf3993121c2507584060e118f3581e9))
+
 ## v2.3.0 (2023-06-16)
 
 ### Feature
