@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.1.0 (2023-06-16)
+
+### Feature
+
+* Add dist ouput ([`12ed1f1`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/12ed1f1d406e64debf0c5f62a83bdd7965841d4d))
+
 ## v2.0.0 (2023-06-16)
 
 ### Feature
