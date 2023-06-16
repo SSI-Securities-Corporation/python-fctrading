@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.2.0 (2023-06-16)
+
+### Feature
+
+* Config zip file ([`8699f55`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/8699f55b32085c33de083cef5f175f8bee938c13))
+
 ## v2.1.0 (2023-06-16)
 
 ### Feature
