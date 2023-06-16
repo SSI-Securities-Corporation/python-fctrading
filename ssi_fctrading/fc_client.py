@@ -8,6 +8,8 @@ from dataclasses import asdict
 import requests
 import json
 from datetime import date, datetime, timedelta
+import socket
+import psutil
 
 
 class FCTradingClient(object):
@@ -75,6 +77,23 @@ class FCTradingClient(object):
             return self._write_access_token.get_access_token()
         else:
             raise NameError(res_obj.message)
+    @staticmethod
+    def _get_ip_addresses(family):
+        for interface, snics in psutil.net_if_addrs().items():
+            mac = None
+            for snic in snics:
+                if snic.family == -1 :
+                    mac = snic.address
+                if snic.family == family :
+                    yield (interface, snic.address, snic.netmask, mac)
+    @staticmethod
+    def get_deviceid():
+        ipv4 = list(FCTradingClient._get_ip_addresses(socket.AF_INET))
+        rs = []
+        for ip in ipv4:
+            if ip[3] is not None and ip[3] != '':
+                rs.append(f"{ip[0]}:{ip[3]}")
+        return '|'.join(rs)
     
     def new_order(self, model: fcmodel_requests.NewOrder):
         return self._fc_make_request_post(api.FC_NEW_ORDER, model)
