@@ -1,4 +1,4 @@
-__version__ = '2.4.0'
+__version__ = '2.2.0'
 
 # This is a property
 # of SSI company
