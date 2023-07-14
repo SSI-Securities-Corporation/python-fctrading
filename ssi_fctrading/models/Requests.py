@@ -100,3 +100,7 @@ class OrderHistory:
 @dataclass
 class OrderBook:
     account: str
+    
+@dataclass
+class AuditOrderBook:
+    account: str
