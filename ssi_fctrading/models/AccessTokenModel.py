@@ -1,11 +1,16 @@
 from datetime import datetime
 from . import fcmodel_responses
-import jwt
+import json
+import base64
 
 class AccessTokenModel(object):
 
 	def __init__(self, access_token: fcmodel_responses.AccessToken):
-		jj = jwt.decode(access_token.accessToken, verify=False, options={"verify_signature": False})
+    
+		tokenSplit = access_token.accessToken.split(".")
+		s = tokenSplit[1]
+		s += "=" * ((4 - len(s) % 4) % 4) #ugh
+		jj = json.loads((base64.b64decode(s)).decode("utf-8"))
 		self._token_expire_at = datetime.fromtimestamp(jj['exp'])
 		self._access_token = access_token.accessToken
 

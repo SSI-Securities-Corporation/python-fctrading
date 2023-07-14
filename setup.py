@@ -49,7 +49,7 @@ setup(
                         'xmljson',
                         'requests',
                         'signalr-client',
-                        'pyjwt'],
+                        'psutil'],
 )
 
 
