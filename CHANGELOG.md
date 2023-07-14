@@ -2,6 +2,18 @@
 
 <!--next-version-placeholder-->
 
+## v2.3.0 (2023-06-16)
+
+### Feature
+
+* Version ([`061d80b`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/061d80bf1471c9360e5562631c030c8699ef5553))
+* Remove uat env ([`5f185ba`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/5f185badfff5eb74a2ae286a88b4e49399e80078))
+* Add document and dist folder ([`2c26b51`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/2c26b516a0ab1c8babb86f2d276b6b89722e2fef))
+
+### Fix
+
+* Add function get deviceid ([`a149e57`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/a149e57adcf3993121c2507584060e118f3581e9))
+
 ## v2.4.0 (2023-06-16)
 
 ### Feature
