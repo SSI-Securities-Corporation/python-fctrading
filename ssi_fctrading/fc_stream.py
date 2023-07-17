@@ -1,9 +1,7 @@
 from .constant import api
 import time
-# import gevent.monkey
-# gevent.monkey.patch_all()
 from requests import Session
-from signalr import Connection
+from .signalr import Connection
 from . import FCTradingClient
 
 
@@ -28,19 +26,20 @@ class FCTradingStream(object):
 			fc_error_handler(fc_error)
 
 	def start(self):
-		with Session() as fc_session:
+		
+		headers = {}
+		headers['Authorization'] = "Bearer " + self.client.get_access_token()
+		headers["NotifyID"] = self.lastId
+			
+		self.connection = Connection(self._stream_url + api.SIGNALR, headers)
+		
+		self.hub_proxy = self.connection.register_hub(api.SIGNALR_HUB_FC)
 
-			fc_session.headers["Authorization"] = "Bearer " + self.client.get_access_token()
-			fc_session.headers["NotifyID"] = self.lastId			
-			connection = Connection(self._stream_url + api.SIGNALR, fc_session)
-			
-			chat = connection.register_hub(api.SIGNALR_HUB_FC)
-			chat.client.on(api.SIGNALR_METHOD, self.fc_on_message)
-			chat.client.on(api.SIGNALR_METHOD_ERROR, self.fc_on_error)
-			connection.error += self.fc_on_error
-			
-			with connection:
-				while True:
-					time.sleep(10)
+		self.hub_proxy.client.on(api.SIGNALR_METHOD, self.fc_on_message)
+
+		self.hub_proxy.client.on(api.SIGNALR_METHOD_ERROR, self.fc_on_error)
+		
+		self.connection.error += self.fc_on_error
+		self.connection.start()
 
 

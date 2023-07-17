@@ -1,8 +1,8 @@
-from gevent import monkey
-monkey.patch_all()
-
 from ssi_fctrading import FCTradingStream, fc_stream
 from ssi_fctrading import FCTradingClient
+from urllib.parse import urlparse, urlunparse, urlencode, quote
+
+import urllib3
 from . import fc_config
 
 
@@ -20,10 +20,11 @@ def tapi_data_streaming(on_message, on_error):
 	print("access_token: "+ client.get_access_token())
 	stream_client = FCTradingStream(client, fc_config.StreamURL, on_message, on_error, fc_config.NotifyId)
 	stream_client.start()
+	message = None
+	while message != "exit()":
+		message = input(">> ")
 
 
 # main function
 if __name__ == '__main__':
-	from gevent import monkey
-	monkey.patch_all()
 	tapi_data_streaming(on_message, on_error)
