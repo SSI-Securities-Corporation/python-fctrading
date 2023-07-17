@@ -47,7 +47,8 @@ setup(
     include_package_data=False,
     install_requires=['pycryptodome',
                         'xmljson',
-                        'requests>=2.18.4', 'websockets>=4.0.1'],
+                        'requests>=2.18.4', 'websocket-client>=1.5.2',
+                        'psutil'],
 )
 
 

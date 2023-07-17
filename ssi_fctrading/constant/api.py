@@ -16,6 +16,7 @@ FC_DER_CANCEL_ORDER = "api/v2/Trading/derCancelOrder"
 
 FC_GET_ORDER_HISTORY = "api/v2/Trading/orderHistory"
 FC_GET_ORDER_BOOK = "api/v2/Trading/orderBook"
+FC_GET_AUDIT_ORDER_BOOK = "api/v2/Trading/auditOrderBook"
 
 FC_GET_DER_POSITION = "api/v2/Trading/derivPosition"
 FC_GET_STOCK_POSITION = "api/v2/Trading/stockPosition"
