@@ -2,6 +2,18 @@
 
 <!--next-version-placeholder-->
 
+## v2.4.0 (2023-07-18)
+
+### Feature
+
+* Remove gevent lib ([`1bef366`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/1bef366ef21d29d346cb48e5bcb05e939a83a0d7))
+* New api audit order book ([`98498b3`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/98498b3b7915251e084852ec21666162603c6fbb))
+
+### Documentation
+
+* Update guide ([`d3cdaf3`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/d3cdaf3c0759e6200dd4cfd97d6f89d17e08294e))
+* Update guide ([`4a71dd8`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/4a71dd875a617593b1a8a5501a9405bf7f668c04))
+
 ## v2.3.0 (2023-06-16)
 
 ### Feature
