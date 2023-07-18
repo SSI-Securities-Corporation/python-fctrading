@@ -342,8 +342,8 @@ async def fc_order_history(account: str, startDate: str, endDate: str):
 	return res
 
 @app.get("/orderBook")
-def fc_order_history(account: str):
-	"""Get order history
+async def fc_order_book(account: str):
+	"""Get order book
 
 	Args:
 		account (str): account id
@@ -355,4 +355,20 @@ def fc_order_history(account: str):
 	fc_rq = fcmodel_requests.OrderBook(str(account))
 
 	res = client.get_order_book(fc_rq)
+	return res
+
+@app.get("/auditOrderBook")
+async def fc_audit_order_book(account: str):
+	"""Get audit order book ( include order error)
+
+	Args:
+		account (str): account id
+
+	Returns:
+		[str]: json string
+	"""
+	
+	fc_rq = fcmodel_requests.AuditOrderBook(str(account))
+
+	res = client.get_audit_order_book(fc_rq)
 	return res

@@ -146,3 +146,6 @@ class FCTradingClient(object):
     
     def get_order_book(self, model: fcmodel_requests.OrderBook):
         return self._fc_make_request_get(api.FC_GET_ORDER_BOOK, model)
+    
+    def get_audit_order_book(self, model: fcmodel_requests.AuditOrderBook):
+        return self._fc_make_request_get(api.FC_GET_AUDIT_ORDER_BOOK, model)
