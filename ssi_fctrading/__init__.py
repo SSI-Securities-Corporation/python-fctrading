@@ -1,4 +1,4 @@
-__version__ = '2.4.0'
+from .version import __version__
 
 from .fc_client import FCTradingClient
 from .fc_stream import FCTradingStream

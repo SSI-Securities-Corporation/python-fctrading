@@ -10,6 +10,8 @@ import json
 from datetime import date, datetime, timedelta
 import socket
 import psutil
+import platform
+from .version import __version__
 
 
 class FCTradingClient(object):
@@ -94,6 +96,10 @@ class FCTradingClient(object):
             if ip[3] is not None and ip[3] != '':
                 rs.append(f"{ip[0]}:{ip[3]}")
         return '|'.join(rs)
+    
+    @staticmethod
+    def get_user_agent():
+        return "Python/%s(%s); ssi-fctrading/%s" %(platform.python_version(), platform.platform(), __version__)
     
     def new_order(self, model: fcmodel_requests.NewOrder):
         return self._fc_make_request_post(api.FC_NEW_ORDER, model)

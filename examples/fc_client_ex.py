@@ -33,7 +33,7 @@ async def fc_get_otp(code: str):
 @app.get("/newOrder")
 async def fc_new_order(instrumentID: str, market: str, buySell: str, orderType: str
     , price: float, quantity: int, account: str, stopOrder: bool = False, stopPrice: float = 0, 
-      stopType: str = '', stopStep: float = 0, lossStep: float = 0, profitStep: float = 0, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = 'FCTrading'):
+      stopType: str = '', stopStep: float = 0, lossStep: float = 0, profitStep: float = 0, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = FCTradingClient.get_user_agent()):
 	
 	"""Place new order
 
@@ -68,7 +68,7 @@ async def fc_new_order(instrumentID: str, market: str, buySell: str, orderType: 
 
 @app.get("/modifyOrder")
 async def fc_modify_order(orderID: str, instrumentID: str, marketID: str, buySell: str, orderType: str
-    , price: float, quantity: int, account: str, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = 'FCTrading'):
+    , price: float, quantity: int, account: str, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = FCTradingClient.get_user_agent()):
 	"""Modify order
 
 	Args:
@@ -95,7 +95,7 @@ async def fc_modify_order(orderID: str, instrumentID: str, marketID: str, buySel
 	return res
 
 @app.get("/cancelOrder")
-async def fc_cancel_order(orderID: str, instrumentID: str, marketID: str, buySell: str, account: str, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = 'FCTrading'):
+async def fc_cancel_order(orderID: str, instrumentID: str, marketID: str, buySell: str, account: str, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = FCTradingClient.get_user_agent()):
 	"""Cancel order
 
 	Args:
@@ -120,7 +120,7 @@ async def fc_cancel_order(orderID: str, instrumentID: str, marketID: str, buySel
 @app.get("/derNewOrder")
 async def fc_der_new_order(instrumentID: str, market: str, buySell: str, orderType: str
     , price: float, quantity: int, account: str, stopOrder: bool = False, stopPrice: float = 0, 
-      stopType: str = '', stopStep: float = 0, lossStep: float = 0, profitStep: float = 0, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = 'FCTrading'):
+      stopType: str = '', stopStep: float = 0, lossStep: float = 0, profitStep: float = 0, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = FCTradingClient.get_user_agent()):
 	
 	"""Place new derivatives order
 
@@ -155,7 +155,7 @@ async def fc_der_new_order(instrumentID: str, market: str, buySell: str, orderTy
 
 @app.get("/derModifyOrder")
 async def fc_der_modify_order(orderID: str, instrumentID: str, marketID: str, buySell: str, orderType: str
-    , price: float, quantity: int, account: str, deviceId: str = '', userAgent: str = ''):
+    , price: float, quantity: int, account: str, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = FCTradingClient.get_user_agent()):
 	"""Derivative Modify order
 
 	Args:
@@ -182,7 +182,7 @@ async def fc_der_modify_order(orderID: str, instrumentID: str, marketID: str, bu
 	return res
 
 @app.get("/derCancelOrder")
-async def fc_der_cancel_order(orderID: str, instrumentID: str, marketID: str, buySell: str, account: str, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = 'FCTrading'):
+async def fc_der_cancel_order(orderID: str, instrumentID: str, marketID: str, buySell: str, account: str, deviceId: str = FCTradingClient.get_deviceid(), userAgent: str = FCTradingClient.get_user_agent()):
 	"""Derivative cancel order
 
 	Args:

@@ -12,7 +12,7 @@ def _read_long_description():
     
 
 
-with open("ssi_fctrading/__init__.py", "r") as fd:
+with open("ssi_fctrading/version.py", "r") as fd:
     version = re.search(
         r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE
     ).group(1)
