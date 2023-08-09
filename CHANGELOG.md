@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.4.1 (2023-08-09)
+
+### Fix
+
+* Normalize deviceid and agent id ([`47bcf1d`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/47bcf1db1596d201898b7fb58ab3441183b82d59))
+
 ## v2.4.0 (2023-07-18)
 
 ### Feature
