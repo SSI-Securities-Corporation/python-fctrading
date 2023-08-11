@@ -1,5 +1,5 @@
 import re
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # python setup.py sdist bdist_wheel
 # twine upload dist/*
@@ -44,6 +44,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
     ],
+    packages=find_packages(),
     include_package_data=False,
     install_requires=['pycryptodome',
                         'xmljson',
