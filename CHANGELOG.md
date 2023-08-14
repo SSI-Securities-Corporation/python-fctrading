@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v2.4.2 (2023-08-14)
+
+### Fix
+
+* Add packages to setuptools ([`14e33a1`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/14e33a1f22353362de6d0202dd364d2f8accf97d))
+
+### Documentation
+
+* Update docs ([`3520aad`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/3520aad7ea3e5837cc369554e244016eba440b02))
+
 ## v2.4.1 (2023-08-09)
 
 ### Fix
