@@ -155,3 +155,43 @@ class FCTradingClient(object):
     
     def get_audit_order_book(self, model: fcmodel_requests.AuditOrderBook):
         return self._fc_make_request_get(api.FC_GET_AUDIT_ORDER_BOOK, model)
+    
+    #CASH
+    def get_cash_cia_amount(self, model: fcmodel_requests.CashInAdvanceAmount):
+        return self._fc_make_request_get(api.FC_CASH_CIA_AMOUNT, model)
+    def get_cash_unsettle_sold_transaction(self, model: fcmodel_requests.UnsettleSoldTransaction):
+        return self._fc_make_request_get(api.FC_CASH_UNSETTLE_SOLD_TRANSACTION, model)
+    def get_cash_transfer_history(self, model: fcmodel_requests.CashTransferHistory):
+        return self._fc_make_request_get(api.FC_CASH_TRANSFER_HISTORY, model)
+    def get_cash_cia_history(self, model: fcmodel_requests.CashInAdvanceHistory):
+        return self._fc_make_request_get(api.FC_CASH_CIA_HISTORY, model)
+    def get_cash_cia_est_fee(self, model: fcmodel_requests.CashInAdvanceEstFee):
+        return self._fc_make_request_get(api.FC_CASH_CIA_EST_FEE, model)
+    
+    def create_cash_transfer_vsd(self, model: fcmodel_requests.CashTransferVSD):
+        return self._fc_make_request_post(api.FC_CASH_VSD_DW, model)
+    def create_cash_transfer(self, model: fcmodel_requests.CashTransfer):
+        return self._fc_make_request_post(api.FC_CASH_TRANSFER, model)
+    def create_cia(self, model: fcmodel_requests.CashCIA):
+        return self._fc_make_request_post(api.FC_CASH_CIA, model)
+    
+    #ONLINE RIGHT SUBSCRIPTION
+    
+    def get_ors_dividend(self, model: fcmodel_requests.OrsDividend):
+        return self._fc_make_request_get(api.FC_ORS_DIVIDEND, model)
+    def get_ors_exercisable_quantity(self, model: fcmodel_requests.OrsExercisableQuantity):
+        return self._fc_make_request_get(api.FC_ORS_EXCERCISABLE_QTY, model)
+    def get_ors_history(self, model: fcmodel_requests.OrsHistory):
+        return self._fc_make_request_get(api.FC_ORS_HISTORY, model)
+    
+    def create_ors(self, model: fcmodel_requests.Ors):
+        return self._fc_make_request_post(api.FC_ORS, model)
+    
+    #STOCK
+    def get_stock_transferable(self, model: fcmodel_requests.StockTransferable):
+        return self._fc_make_request_get(api.FC_STOCK_TRANSFERABLE, model)
+    def get_stock_transfer_history(self, model: fcmodel_requests.StockTransferHistory):
+        return self._fc_make_request_get(api.FC_STOCK_HISTORY, model)
+    
+    def create_stock_transfer(self, model: fcmodel_requests.StockTransfer):
+        return self._fc_make_request_post(api.FC_STOCK_TRANSFER, model)

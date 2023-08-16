@@ -3,7 +3,7 @@ from ssi_fctrading.models import fcmodel_requests
 from . import fc_config
 from typing import Union
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 app = FastAPI()
 
 import random
@@ -371,4 +371,85 @@ async def fc_audit_order_book(account: str):
 	fc_rq = fcmodel_requests.AuditOrderBook(str(account))
 
 	res = client.get_audit_order_book(fc_rq)
+	return res
+
+@app.get("/cash/cashInAdvanceAmount", tags=["cash"])
+async def fc_cia_amount(models: fcmodel_requests.CashInAdvanceAmount = Depends()):
+
+	res = client.get_cash_cia_amount(models)
+	return res
+
+@app.get("/cash/unsettleSoldTransaction", tags=["cash"])
+async def fc_cash_unsettleSoldTransaction(models: fcmodel_requests.UnsettleSoldTransaction = Depends()):
+
+	res = client.get_cash_unsettle_sold_transaction(models)
+	return res
+@app.get("/cash/transferHistories", tags=["cash"])
+async def fc_cash_transferHistories(models: fcmodel_requests.CashTransferHistory = Depends()):
+
+	res = client.get_cash_cia_amount(models)
+	return res
+@app.get("/cash/cashInAdvanceHistories", tags=["cash"])
+async def fc_cash_cashInAdvanceHistories(models: fcmodel_requests.CashInAdvanceHistory = Depends()):
+
+	res = client.get_cash_cia_history(models)
+	return res
+@app.get("/cash/estCashInAdvanceFee", tags=["cash"])
+async def fc_cash_estCashInAdvanceFee(models: fcmodel_requests.CashInAdvanceEstFee = Depends()):
+
+	res = client.get_cash_cia_est_fee(models)
+	return res
+@app.post("/cash/vsdCashDW", tags=["cash"])
+async def fc_cash_vsdCashDW(models: fcmodel_requests.CashTransferVSD):
+
+	res = client.create_cash_transfer_vsd(models)
+	return res
+@app.post("/cash/transferInternal", tags=["cash"])
+async def fc_cash_transferInternal(models: fcmodel_requests.CashTransfer):
+
+	res = client.create_cash_transfer(models)
+	return res
+@app.post("/cash/createCashInAdvance", tags=["cash"])
+async def fc_cash_createCashInAdvance(models: fcmodel_requests.CashCIA):
+
+	res = client.create_cia(models)
+	return res
+
+#ORS
+@app.get("/ors/dividend", tags=["online right subscription"])
+async def fc_ors_dividend(models: fcmodel_requests.OrsDividend = Depends()):
+
+	res = client.get_ors_dividend(models)
+	return res
+@app.get("/ors/exercisableQuantity", tags=["online right subscription"])
+async def fc_ors_exercisableQuantity(models: fcmodel_requests.OrsExercisableQuantity = Depends()):
+
+	res = client.get_ors_exercisable_quantity(models)
+	return res
+@app.get("/ors/histories", tags=["online right subscription"])
+async def fc_ors_histories(models: fcmodel_requests.OrsHistory = Depends()):
+
+	res = client.get_ors_history(models)
+	return res
+@app.post("/ors/create", tags=["online right subscription"])
+async def fc_ors_create(models: fcmodel_requests.Ors):
+
+	res = client.create_ors(models)
+	return res
+
+#STOCK
+@app.get("/stock/transferable", tags=["stock"])
+async def fc_stock_exercisableQuantity(models: fcmodel_requests.StockTransferable = Depends()):
+
+	res = client.get_stock_transferable(models)
+	return res
+@app.get("/stock/transferHistories", tags=["stock"])
+async def fc_stock_histories(models: fcmodel_requests.StockTransferHistory = Depends()):
+
+	res = client.get_stock_transfer_history(models)
+	return res
+@app.post("/stock/transfer", tags=["stock"])
+async def fc_stock_create(models: fcmodel_requests.StockTransfer):
+
+	res = client.create_stock_transfer(models)
 	return res
