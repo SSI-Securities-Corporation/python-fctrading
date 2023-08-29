@@ -373,6 +373,17 @@ async def fc_audit_order_book(account: str):
 	res = client.get_audit_order_book(fc_rq)
 	return res
 
+@app.get("/rateLimit")
+async def fc_rateLimit():
+	"""Get ratelimit
+
+	Returns:
+		[str]: json string
+	"""
+	
+	res = client.get_ratelimit()
+	return res
+
 @app.get("/cash/cashInAdvanceAmount", tags=["cash"])
 async def fc_cia_amount(models: fcmodel_requests.CashInAdvanceAmount = Depends()):
 

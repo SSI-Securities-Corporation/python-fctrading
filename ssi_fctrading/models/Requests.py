@@ -128,8 +128,8 @@ class CashInAdvanceHistory:
 @dataclass
 class CashInAdvanceEstFee:
     account: str
-    ciaAmount: float
-    receiveAmount: float
+    ciaAmount: float = 0
+    receiveAmount: float = 0
     
 @dataclass
 class CashTransferVSD:
@@ -148,8 +148,8 @@ class CashTransfer:
 @dataclass
 class CashCIA:
     account: str
-    ciaAmount: float
-    receiveAmount: float
+    ciaAmount: float = 0
+    receiveAmount: float = 0
     
 @dataclass
 class OrsDividend:

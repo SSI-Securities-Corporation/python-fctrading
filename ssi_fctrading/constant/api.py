@@ -27,6 +27,8 @@ FC_GET_ACCOUNT_BALANCE              = "api/v2/Trading/cashAcctBal"
 FC_GET_DER_ACCOUNT_BALANCE          = "api/v2/Trading/derivAcctBal"
 FC_GET_PP_MMR_ACCOUNT               = "api/v2/Trading/ppmmraccount"
 
+FC_GET_RATELIMIT                    = "api/v2/Trading/rateLimit"
+
 #CASH API
 FC_CASH_CIA_AMOUNT                  = "api/v2/cash/cashInAdvanceAmount"
 FC_CASH_UNSETTLE_SOLD_TRANSACTION   = "api/v2/cash/unsettleSoldTransaction"

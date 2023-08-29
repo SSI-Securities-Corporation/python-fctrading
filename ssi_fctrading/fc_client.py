@@ -32,7 +32,10 @@ class FCTradingClient(object):
     def _fc_make_request_get(self, _api_url: str, _request_object: object):
         _headers = self._headers
         _headers["Authorization"] = "Bearer " + self.get_access_token()
-        tapi_response = requests.get(self.url + _api_url , asdict(_request_object), 
+        param = None
+        if _request_object is not None:
+            param = asdict(_request_object)
+        tapi_response = requests.get(self.url + _api_url , param, 
             headers=_headers)
 
         return tapi_response.json()
@@ -155,6 +158,9 @@ class FCTradingClient(object):
     
     def get_audit_order_book(self, model: fcmodel_requests.AuditOrderBook):
         return self._fc_make_request_get(api.FC_GET_AUDIT_ORDER_BOOK, model)
+    
+    def get_ratelimit(self):
+        return self._fc_make_request_get(api.FC_GET_RATELIMIT, None)
     
     #CASH
     def get_cash_cia_amount(self, model: fcmodel_requests.CashInAdvanceAmount):
