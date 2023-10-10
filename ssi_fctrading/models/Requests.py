@@ -137,6 +137,7 @@ class CashTransferVSD:
     amount: int
     type: str
     remark: str
+    code: str = ""
     
 @dataclass
 class CashTransfer:
@@ -144,12 +145,14 @@ class CashTransfer:
     beneficiaryAccount: str
     amount: int
     remark: str
+    code: str = ""
     
 @dataclass
 class CashCIA:
     account: str
     ciaAmount: float = 0
     receiveAmount: float = 0
+    code: str = ""
     
 @dataclass
 class OrsDividend:
@@ -171,7 +174,8 @@ class Ors:
     instrumentID: str
     entitlementID: str 
     quantity: int
-    amount: float   
+    amount: float
+    code: str = ""   
     
 @dataclass
 class StockTransferable:
@@ -190,3 +194,4 @@ class StockTransfer:
     exchangeID: str
     instrumentID: str
     quantity: int
+    code: str = ""
