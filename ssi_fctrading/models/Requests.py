@@ -104,3 +104,94 @@ class OrderBook:
 @dataclass
 class AuditOrderBook:
     account: str
+
+@dataclass
+class CashInAdvanceAmount:
+    account: str
+    
+@dataclass
+class UnsettleSoldTransaction:
+    account: str
+    settleDate: str
+
+@dataclass
+class CashTransferHistory:
+    account: str
+    fromDate: str
+    toDate: str
+@dataclass
+class CashInAdvanceHistory:
+    account: str
+    startDate: str
+    endDate: str
+
+@dataclass
+class CashInAdvanceEstFee:
+    account: str
+    ciaAmount: float = 0
+    receiveAmount: float = 0
+    
+@dataclass
+class CashTransferVSD:
+    account: str
+    amount: int
+    type: str
+    remark: str
+    code: str = ""
+    
+@dataclass
+class CashTransfer:
+    account: str
+    beneficiaryAccount: str
+    amount: int
+    remark: str
+    code: str = ""
+    
+@dataclass
+class CashCIA:
+    account: str
+    ciaAmount: float = 0
+    receiveAmount: float = 0
+    code: str = ""
+    
+@dataclass
+class OrsDividend:
+    account: str
+    
+@dataclass
+class OrsExercisableQuantity:
+    account: str
+    
+@dataclass
+class OrsHistory:
+    account: str
+    startDate: str
+    endDate: str
+    
+@dataclass
+class Ors:
+    account: str
+    instrumentID: str
+    entitlementID: str 
+    quantity: int
+    amount: float
+    code: str = ""   
+    
+@dataclass
+class StockTransferable:
+    account: str
+    
+@dataclass
+class StockTransferHistory:
+    account: str
+    startDate: str
+    endDate: str
+    
+@dataclass
+class StockTransfer:
+    account: str
+    beneficiaryAccount: str
+    exchangeID: str
+    instrumentID: str
+    quantity: int
+    code: str = ""
