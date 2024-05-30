@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v2.5.0 (2024-05-30)
+
+### Feature
+
+* Add api rateLimit ([`6687a62`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/6687a6223d1f817b33c9ac0452d0bd71673da664))
+* New cash and stock api support ([`c48a65a`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/c48a65af148210823848a4de8602011b136cb879))
+
 ## v2.4.2 (2023-08-14)
 
 ### Fix
