@@ -8,7 +8,7 @@ pip install ssi-fctrading
 #### Install behind proxy
 ```python
 pip install --trusted-host pypi.org --trusted-host
-files.pythonhosted.org --proxy=http://<username>:<password>@<host>:<port> dist/ssi_fctrading-2.3.0.tar.gz
+files.pythonhosted.org --proxy=http://<username>:<password>@<host>:<port> dist/ssi_fctrading-2.5.0.tar.gz
 ```
 
 #### Pypi
