@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.5.1 (2024-06-05)
+
+### Fix
+
+* New version for event close and open ([`ed261e5`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/ed261e5adf64d267e0e9d14dad58844176475fc9))
+
 ## v2.5.0 (2024-05-30)
 
 ### Feature
