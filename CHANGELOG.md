@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.5.2 (2024-06-13)
+
+### Fix
+
+* Example command install/run ([`09436df`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/09436df9f62c2e53413d0dea44dbb65f241c9f03))
+
 ## v2.5.1 (2024-06-05)
 
 ### Fix
