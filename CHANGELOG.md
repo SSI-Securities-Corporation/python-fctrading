@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v2.5.3 (2024-06-18)
+
+### Fix
+
+* **examples:** Add input mode for derivative position api ([`a3008d9`](https://github.com/SSI-Securities-Corporation/python-fctrading/commit/a3008d91ad20a75481588d079938021329849343))
+
 ## v2.5.2 (2024-06-13)
 
 ### Fix
