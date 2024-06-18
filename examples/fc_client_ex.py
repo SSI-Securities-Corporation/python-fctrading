@@ -272,17 +272,18 @@ async def fc_stock_position(account: str):
 	return res
 
 @app.get("/derivativePosition")
-async def fc_derivative_position(account: str):
+async def fc_derivative_position(account: str, querySummary: bool = True):
 	"""Get derivative position of account
 
 	Args:
 		account (str): derivative account id
+		querySummary (bool): summary position
 
 	Returns:
 		str: Json str
 	"""	
 	
-	fc_rq = fcmodel_requests.DerivativePosition(str(account))
+	fc_rq = fcmodel_requests.DerivativePosition(str(account), querySummary)
 
 	res = client.get_derivative_position(fc_rq)
 	return res
